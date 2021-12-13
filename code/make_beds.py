@@ -36,18 +36,18 @@ def makeBeds(which):
                         for start_coord in start_coord_set.split(','):
                             if len(start_coord) > 0:
                                 sites_out.write(data[2]+'\t'+
-                                                start_coord+'\t'+
-                                                start_coord+'\t'+
-                                                '.\t1\t.\n')
+                                                str(int(start_coord))+'\t'+
+                                                str(int(start_coord)+1)+'\t'+
+                                                '.\t1\n')
 
                 for end_coord_set in data[7::2]:
                     if len(end_coord_set) > 0:
                         for end_coord in end_coord_set.split(','):
                             if len(end_coord) > 0:
                                 sites_out.write(data[2]+'\t'+
-                                                end_coord+'\t'+
-                                                end_coord+'\t'+
-                                                '.\t-1\t.\n')
+                                                str(int(end_coord))+'\t'+
+                                                str(int(end_coord)+1)+'\t'+
+                                                '.\t2\n')
         
     roi_out.close()
     sites_out.close()
