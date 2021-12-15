@@ -1,8 +1,11 @@
-import re
+# code to generate .bed files for regions of interest (genes) and prediction target (splice sites)
+# from the dataset used to train the SpliceAI models (Jaganathan et al., 2019)
 
-###
+### change this path to where canonical_dataset.txt is installed
 dataset_path = './canonical_dataset.txt'
 ###
+
+import re
 
 def makeBeds(which):
     
@@ -54,5 +57,8 @@ def makeBeds(which):
 
     print('done with '+suffix)
 
+# janggu wants all of the sites (test AND train) in one .bed file (sites_all.bed),
+# but the regions of interest should be in separate .bed files for train and test (roi_train.bed and roi_test.bed)
 makeBeds('train')
 makeBeds('test')
+#makeBeds('all') 
